@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "./Styles.css";
+import "./Styles.css";
 
 export default class Movieinfo extends Component {
   constructor(props) {
@@ -8,7 +8,12 @@ export default class Movieinfo extends Component {
     this.state = props.movie;
   }
 
-  IncrementCount = () => {};
+  IncrementCount = () => {
+    this.setState(
+      { count: this.state.count + 1 },
+      this.props.trackcount(this.state.id)
+    );
+  };
 
   render() {
     return (
@@ -21,9 +26,14 @@ export default class Movieinfo extends Component {
           <div>
             <p></p>
           </div>
-          <button>Like</button> <b>{this.state.count} </b>
+          <button onClick={this.IncrementCount}>Like</button>{" "}
+          <b>{this.state.count} </b>
           <p></p>
-          <div>{this.state.name}</div>
+          <div>
+            <a target="_blank" href={this.state.videoLink}>
+              {this.state.name}
+            </a>
+          </div>
           <div>
             {this.state.producedBy} , {this.state.yearOfRelease}
           </div>

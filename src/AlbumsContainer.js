@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Movieinfo from "./Movieinfo";
-import styles from "./Styles.css";
+import "./Styles.css";
 
 const movies = [
   {
@@ -49,15 +49,23 @@ const movies = [
     count: 3
   }
 ];
-
 export default class AlbumsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       movies: movies
     };
+    this.updateMoviecount = this.updateMoviecount.bind(this);
   }
-  updateMoviecount = id => {};
+  updateMoviecount = id => {
+    let findmovie = this.state.movies;
+    //finding movie with the id of liked movie from user and incrementing a count
+    findmovie.find(movieid => movieid.id === id).count++;
+    this.setState({ movies: findmovie });
+    //sort movies array, with updated counted count of liked movie.
+    let sortedArray = this.state.movies.sort((a, b) => b.count - a.count);
+    this.setState({ movies: sortedArray });
+  };
   render() {
     let movieslist = this.state.movies.map(movie => (
       <div key={movie.id}>
