@@ -1,0 +1,40 @@
+body {
+  width: 500px;
+  margin: auto;
+  border-color: rgb(75, 72, 72);
+  border-width: 0.1em;
+  border-style: solid;
+  box-sizing: border-box;
+}
+h1 {
+  text-align: center;
+  border-width: 0.01em;
+  border-style: solid;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 0px;
+}
+
+.flex-container {
+  display: flex;
+  width: 450px;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.Msgcontain {
+  width: 250px;
+  height: auto;
+  margin-left: 20px;
+  margin-top: 50px;
+}
+
+.imageContain {
+  width: 200px;
+}
+.imageAdded img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
